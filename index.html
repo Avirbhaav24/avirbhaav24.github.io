@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Sheets API Example</title>
+</head>
+<body>
+    <h1>Google Sheets Data</h1>
+    <div id="sheetData"></div>
+
+    <script>
+        // Fetch data from Google Sheets API
+        fetch('YOUR_GOOGLE_SHEETS_API_ENDPOINT')
+            .then(response => response.json())
+            .then(data => {
+                // Process the data and display it on the webpage
+                const sheetDataElement = document.getElementById('sheetData');
+                // Example: Display the first row of the spreadsheet
+                sheetDataElement.innerText = `First Row: ${data.values[0].join(', ')}`;
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    </script>
+</body>
+</html>
